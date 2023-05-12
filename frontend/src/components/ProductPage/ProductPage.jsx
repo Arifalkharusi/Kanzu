@@ -132,7 +132,7 @@ const ProductPage = (props) => {
               </button>
             </div>
             <div className={style.quantity}>
-              <label>QUANTITY x</label>
+              <label>QUANTITY</label>
               <div>
                 <button onClick={() => qty > 1 && setQty(qty - 1)}>-</button>
                 <input
