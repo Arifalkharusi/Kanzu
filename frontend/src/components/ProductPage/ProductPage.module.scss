@@ -1,0 +1,160 @@
+.productpage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  height: 100%;
+  transform: translateY(-100px);
+
+  .disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  .main {
+    width: 100%;
+    display: flex;
+    height: 100%;
+    position: relative;
+
+    .left,
+    .right {
+      width: 50%;
+    }
+
+    .left {
+      img {
+        width: 100%;
+      }
+    }
+
+    .container {
+      position: sticky;
+      top: 100px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      max-width: 600px;
+      height: 50%;
+      padding: 100px 50px;
+
+      .details {
+        div {
+          &:first-child {
+            font-size: 25px;
+            margin-bottom: 15px;
+          }
+        }
+      }
+
+      label {
+        color: grey;
+        font-size: 14px;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        span {
+          display: flex;
+          align-items: flex-end;
+          gap: 5px;
+          cursor: pointer;
+          font-size: 12px;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+        svg {
+          width: 15px;
+          height: 15px;
+        }
+      }
+
+      .length,
+      .size {
+        display: flex;
+        flex-direction: column;
+        font-size: 14px;
+
+        .stock {
+          display: flex;
+          align-items: center;
+
+          // justify-content: space-between;
+        }
+        > div {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          > div {
+            padding: 10px 13px;
+            border: 2px solid rgb(218, 218, 218);
+            cursor: pointer;
+            transition: all 0.25s;
+          }
+        }
+      }
+
+      .findsize,
+      .addtocart {
+        button {
+          background: none;
+          border: 1px solid black;
+          width: 100%;
+          padding: 10px;
+          cursor: pointer;
+          span {
+            padding: 2px 6px;
+            background: rgb(184, 220, 231);
+            border-radius: 50%;
+          }
+        }
+      }
+
+      .addtocart {
+        button {
+          padding: 20px;
+        }
+      }
+      .quantity {
+        display: flex;
+        flex-direction: column;
+
+        > div {
+          display: flex;
+          border: 1px solid rgb(218, 218, 218);
+          width: 77px;
+          button {
+            background: none;
+            padding: 5px 10px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.25s;
+            &:hover {
+              background: rgb(218, 218, 218);
+            }
+            &:active {
+              background: rgb(206, 206, 206);
+            }
+          }
+          input::-webkit-outer-spin-button,
+          input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+          }
+          input {
+            text-align: center;
+            width: 20px;
+            border: none;
+            &:focus {
+              outline: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}

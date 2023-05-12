@@ -1,0 +1,64 @@
+.footer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px dotted grey;
+  padding: 50px 20px;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 80px;
+  max-width: 1200px;
+  width: 100%;
+
+  .topbtn {
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .info {
+    display: flex;
+
+    gap: 20px;
+    width: 100%;
+
+    div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 20px;
+      padding: 10px;
+      border-radius: 5px;
+      flex-basis: 100%;
+      cursor: pointer;
+      transition: all 0.25s;
+
+      &:hover {
+        background: rgb(233, 233, 233);
+      }
+    }
+  }
+
+  .details {
+    ul {
+      display: flex;
+      gap: 20px;
+      font-size: 14px;
+      li {
+        list-style: none;
+        cursor: pointer;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

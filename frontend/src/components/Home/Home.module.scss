@@ -1,0 +1,41 @@
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background: url("../../img/Background.png") no-repeat center center/cover;
+
+  .shop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    color: white;
+
+    div {
+      font-size: 40px;
+    }
+
+    .btn {
+      padding: 15px 25px;
+      background: none;
+      text-decoration: none;
+      border: 2px solid white;
+      cursor: pointer;
+      color: white;
+      transition: all 0.25s;
+
+      &:hover {
+        background: white;
+        color: black;
+      }
+    }
+  }
+}

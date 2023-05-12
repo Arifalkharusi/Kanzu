@@ -1,0 +1,55 @@
+.items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+
+  .content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    .heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 0 20px;
+      max-width: 1200px;
+
+      h1 {
+        font-size: 25px;
+        font-weight: normal;
+      }
+      div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        border: 1px solid grey;
+        padding: 10px 20px;
+        cursor: pointer;
+
+        svg {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+  }
+  .listings {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .listings {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media (max-width: 768px) {
+    .listings {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}

@@ -1,0 +1,52 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-image: linear-gradient(white, rgba(255, 255, 255, 0));
+  padding: 10px;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    max-width: 1200px;
+    width: 100%;
+    .menu {
+      width: 117px;
+    }
+    .logo {
+      width: 100px;
+      cursor: pointer;
+    }
+    .cart {
+      position: relative;
+      cursor: pointer;
+      > div {
+        position: absolute;
+        top: 50%;
+        right: 50%;
+        transform: translate(50%, -50%);
+        font-size: 12px;
+        font-weight: bold;
+      }
+    }
+    svg {
+      width: 26px;
+      cursor: pointer;
+    }
+
+    .icons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+  }
+}

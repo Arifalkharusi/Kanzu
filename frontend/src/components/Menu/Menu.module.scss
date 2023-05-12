@@ -1,0 +1,50 @@
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 350px;
+  height: 100%;
+  background: white;
+  transition: transform 0.5s ease-in-out;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  z-index: 100;
+
+  .overlay {
+    display: none;
+    position: absolute;
+    left: 350px;
+    top: 0;
+    height: 100vh;
+    width: 120vw;
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  svg {
+    cursor: pointer;
+    height: 30px;
+    align-self: flex-end;
+  }
+  .content {
+    display: flex;
+    flex-direction: column;
+
+    * {
+      padding: 10px;
+      &:first-child {
+        color: rgb(240, 36, 0);
+      }
+      font-size: 30px;
+      cursor: pointer;
+      border-radius: 2px;
+      text-decoration: none;
+      color: inherit;
+
+      &:hover {
+        background: rgb(226, 226, 226);
+      }
+    }
+  }
+}
