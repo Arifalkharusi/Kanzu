@@ -39,8 +39,8 @@ export const makePayment = asyncHandler(async (req, res) => {
         allowed_countries: ["US", "GB"],
       },
       mode: "payment",
-      success_url: "http://localhost:3000/",
-      cancel_url: "http://localhost:3000/items",
+      success_url: "https://kanzu.netlify.app/",
+      cancel_url: "https://kanzu.netlify.app/items",
     });
 
     res.status(200).json({ paymentUrl: session.url });
