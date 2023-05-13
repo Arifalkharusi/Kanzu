@@ -7,7 +7,7 @@ const Items = (props) => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("/api/admin/get-product")
+    fetch("https://kanzu-api.onrender.com/api/admin/get-product")
       .then((res) => res.json())
       .then((data) => {
         setData(data);
