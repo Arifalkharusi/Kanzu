@@ -17,7 +17,7 @@ const RegisterPage = (props) => {
 
   const LoginHandler = (e) => {
     e.preventDefault();
-    fetch("/api/user/", {
+    fetch("https://kanzu-api.onrender.com/api/user/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

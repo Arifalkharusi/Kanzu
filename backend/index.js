@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(
   cors({
-    origin: "https://tiny-profiterole-d1efdb.netlify.app",
+    origin: "https://kanzu.netlify.app/",
     methods: ["GET", "POST", "DELETE", "PUT"],
   })
 );

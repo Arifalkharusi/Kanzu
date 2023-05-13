@@ -23,7 +23,7 @@ const Cart = (props) => {
 
   const checkoutHandler = async () => {
     setLoader(true);
-    await fetch("/api/checkout/payment", {
+    await fetch("https://kanzu-api.onrender.com/api/checkout/payment", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

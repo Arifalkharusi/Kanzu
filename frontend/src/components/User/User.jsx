@@ -12,7 +12,7 @@ const User = (props) => {
   const { firstName, lastName } = data;
 
   useEffect(() => {
-    fetch("/api/user/me", {
+    fetch("https://kanzu-api.onrender.com/api/user/me", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
