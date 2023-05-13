@@ -1,6 +1,7 @@
 import express from "express";
 import * as dotenv from "dotenv";
 dotenv.config();
+import cors from "cors";
 import mongoose from "mongoose";
 import userRoutes from "./routes/userRoutes.js";
 import cartRoutes from "./routes/cartRoutes.js";
@@ -11,6 +12,12 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(
+  cors({
+    origin: "https://tiny-profiterole-d1efdb.netlify.app",
+    methods: ["GET", "POST", "DELETE", "PUT"],
+  })
+);
 mongoose.connect(process.env.MONGODB_URI);
 
 // user route
