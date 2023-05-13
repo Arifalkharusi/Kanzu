@@ -102,7 +102,7 @@ const Product = ({ data }) => {
         </div>
       </div>
       <Link
-        to="/items/product"
+        to={`/items/product/item=${data._id}`}
         className={style.details}
         onClick={selectedItemHandler}
       >

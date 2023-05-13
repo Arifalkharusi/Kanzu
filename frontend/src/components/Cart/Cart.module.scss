@@ -2,7 +2,7 @@
   position: fixed;
   top: 0;
   right: 0;
-  width: 350px;
+  width: 450px;
   height: 100%;
   background: white;
   transition: transform 0.5s ease-in-out;
@@ -15,7 +15,7 @@
   .overlay {
     display: none;
     position: absolute;
-    right: 350px;
+    right: 450px;
     top: 0;
     height: 100vh;
     width: 120vw;

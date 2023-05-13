@@ -1,14 +1,22 @@
 import React from "react";
 import style from "./CartItem.module.scss";
+import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { removeItem, editItem } from "../../store/cartSlice";
+import { openCart } from "../../store/cartSlice";
 
 const CartItem = ({ items, index }) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const navigateToItem = () => {
+    navigate(`/items/product/item=${items.id}`);
+    dispatch(openCart());
+  };
 
   return (
     <div className={style.cartitem}>
-      <img src={items.img} alt="" />
+      <img src={items.img} alt="" onClick={navigateToItem} />
       <div className={style.rightsec}>
         <div className={style.details}>
           <div>{items.product}</div>

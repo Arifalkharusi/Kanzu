@@ -46,7 +46,7 @@ const Cart = (props) => {
     <div
       className={style.cart}
       style={{
-        transform: displayCart ? "translateX(360px)" : "translateX(0px)",
+        transform: displayCart ? "translateX(460px)" : "translateX(0px)",
       }}
     >
       <svg

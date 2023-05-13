@@ -103,7 +103,7 @@ const ProductPage = (props) => {
                 })}
               </div>
             </div>
-            {/* <div className={style.size}>
+            <div className={style.size}>
               <label>
                 SIZE
                 <span onClick={() => dispatch(openSizeChart())}>
@@ -125,7 +125,7 @@ const ProductPage = (props) => {
                   <div className="select">{x}</div>
                 ))}
               </div>
-            </div> */}
+            </div>
             <div className={style.findsize}>
               <button onClick={() => dispatch(openFindSize())}>
                 FIND YOUR SIZE <span>?</span>

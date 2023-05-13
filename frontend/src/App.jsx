@@ -12,9 +12,8 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import LoginPage from "./components/LoginPage/LoginPage";
 import RegisterPage from "./components/RegisterPage/RegisterPage";
-import Admin from "./components/Admin/Admin";
-import Account from "./components/Account/Account";
 import User from "./components/User/User";
+
 import { login } from "./store/userSlice";
 import { useDispatch } from "react-redux";
 
@@ -39,12 +38,9 @@ function App() {
         <Route path="/" index element={<Home />} />
         <Route path="/items" element={<Items />} />
         <Route path="/items/product/:itemid" element={<ProductPage />} />
-        <Route path="/account" element={<Account />}>
-          <Route path="login" element={<LoginPage />} />
-          <Route path="user" element={<User />} />
-          <Route path="create-account" element={<RegisterPage />} />
-        </Route>
-        <Route path="/admin" element={<Admin />} />
+        <Route path="/account/login" element={<LoginPage />} />
+        <Route path="/account/user" element={<User />} />
+        <Route path="/account/create-account" element={<RegisterPage />} />
       </Routes>
       <Footer />
     </div>
