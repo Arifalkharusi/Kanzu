@@ -7,7 +7,7 @@ const protect = expressAsyncHandler(async (req, res, next) => {
 
   if (req.headers.token) {
     try {
-      token = String(req.headers.token).replaceAll('"', "");
+      token = req.headers.token;
 
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
 

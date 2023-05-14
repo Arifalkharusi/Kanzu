@@ -17,7 +17,7 @@ const User = (props) => {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          token,
+          token: String(token).replaceAll('"', ""),
         },
       })
         .then((res) => res.json())
