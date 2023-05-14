@@ -12,21 +12,24 @@ const User = (props) => {
   const { firstName, lastName } = data;
 
   useEffect(() => {
-    fetch("https://kanzu-api.onrender.com/api/user/me", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        token,
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        dispatch(userData(data));
+    const fecthUser = async () => {
+      await fetch("/api/user/me", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          token,
+        },
       })
-      .catch((err) => {
-        console.error(err);
-        dispatch(login("token-error"));
-      });
+        .then((res) => res.json())
+        .then((data) => {
+          dispatch(userData(data));
+        })
+        .catch((err) => {
+          console.error(err);
+          dispatch(login("token-error"));
+        });
+    };
+    fecthUser();
   }, [dispatch, token]);
 
   if (!token) return <Navigate to="/account/login" />;

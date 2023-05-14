@@ -52,7 +52,7 @@ const AddProduct = (props) => {
       measurements: size,
     };
 
-    await fetch("/api/admin/add-product", {
+    await fetch("https://kanzu-api.onrender.com/api/admin/add-product", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
