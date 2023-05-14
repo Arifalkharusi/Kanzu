@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 const RegisterPage = (props) => {
   const [email, setEmail] = useState(``);
   const [firstName, setFirstName] = useState(``);
+  const [loader, setLoader] = useState(false);
   const [lastName, setLastName] = useState(``);
   const [password, setPassword] = useState(``);
   const [registered, setRegistered] = useState(false);
@@ -15,9 +16,10 @@ const RegisterPage = (props) => {
   if (token) return <Navigate to="/account/user" />;
   if (registered) navigate("/account/login");
 
-  const LoginHandler = (e) => {
+  const LoginHandler = async (e) => {
+    setLoader(true);
     e.preventDefault();
-    fetch("https://kanzu-api.onrender.com/api/user/", {
+    await fetch("https://kanzu-api.onrender.com/api/user/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -30,8 +32,14 @@ const RegisterPage = (props) => {
       }),
     })
       .then((res) => res.json())
-      .then((data) => setRegistered(data.registered))
-      .catch((err) => console.error(err));
+      .then((data) => {
+        setRegistered(data.registered);
+        setLoader(false);
+      })
+      .catch((err) => {
+        console.error(err);
+        setLoader(false);
+      });
 
     setEmail("");
     setFirstName("");
@@ -72,7 +80,22 @@ const RegisterPage = (props) => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button type="submit">Create</button>
+          <button type="submit">
+            {!loader ? (
+              "Create Account"
+            ) : (
+              <TailSpin
+                height="25"
+                width="25"
+                color="white"
+                ariaLabel="tail-spin-loading"
+                radius="1"
+                wrapperStyle={{}}
+                wrapperClass=""
+                visible={true}
+              />
+            )}
+          </button>
         </form>
         <Link to="/account/login" className={style.createacc}>
           <div>Login</div>
