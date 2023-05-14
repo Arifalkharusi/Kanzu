@@ -38,6 +38,7 @@ const LoginPage = (props) => {
         console.error(err);
         setLoader(false);
       });
+
     setEmail("");
     setPassword("");
   };

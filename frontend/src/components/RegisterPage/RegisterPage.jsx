@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import style from "./RegisterPage.module.scss";
 import { useNavigate, Link, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { TailSpin } from "react-loader-spinner";
 
 const RegisterPage = (props) => {
   const [email, setEmail] = useState(``);
