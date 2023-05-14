@@ -38,6 +38,14 @@
       }
     }
   }
+
+  .loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+  }
+
   .listings {
     display: grid;
     grid-template-columns: repeat(4, 1fr);

@@ -12,6 +12,13 @@
     opacity: 0.5;
   }
 
+  .loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+  }
+
   .main {
     width: 100%;
     display: flex;

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import style from "./Items.module.scss";
 import Product from "../Product/Product";
 // import data from "../../data/data.json";
+import { TailSpin } from "react-loader-spinner";
 
 const Items = (props) => {
   const [data, setData] = useState([]);
@@ -37,11 +38,26 @@ const Items = (props) => {
           </div>
         </div>
       </div>
-      <div className={style.listings}>
-        {data.map((x, i) => (
-          <Product data={x} key={i} />
-        ))}
-      </div>
+      {data[0]?._id ? (
+        <div className={style.listings}>
+          {data.map((x, i) => (
+            <Product data={x} key={i} />
+          ))}
+        </div>
+      ) : (
+        <div className={style.loader}>
+          <TailSpin
+            height="50"
+            width="50"
+            color="black"
+            ariaLabel="tail-spin-loading"
+            radius="1"
+            wrapperStyle={{}}
+            wrapperClass=""
+            visible={true}
+          />
+        </div>
+      )}
     </div>
   );
 };
