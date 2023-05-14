@@ -4,16 +4,19 @@ import { Link } from "react-router-dom";
 import { Navigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../store/userSlice";
+import { TailSpin } from "react-loader-spinner";
 
 const LoginPage = (props) => {
   const dispatch = useDispatch();
   const [email, setEmail] = useState(``);
   const [password, setPassword] = useState(``);
+  const [loader, setLoader] = useState(false);
   const { token } = useSelector((state) => state.userSlice);
 
   if (token) return <Navigate to="/account/user" />;
 
   const LoginHandler = async (e) => {
+    setLoader(true);
     e.preventDefault();
     await fetch("https://kanzu-api.onrender.com/api/user/login", {
       method: "POST",
@@ -29,9 +32,11 @@ const LoginPage = (props) => {
       .then((data) => {
         localStorage.setItem("token", JSON.stringify(data.token));
         dispatch(login());
+        setLoader(false);
       })
       .catch((err) => {
         console.error(err);
+        setLoader(false);
       });
     setEmail("");
     setPassword("");
@@ -59,7 +64,22 @@ const LoginPage = (props) => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button type="submit">Sign In</button>
+          <button type="submit">
+            {!loader ? (
+              "Sign In"
+            ) : (
+              <TailSpin
+                height="25"
+                width="25"
+                color="white"
+                ariaLabel="tail-spin-loading"
+                radius="1"
+                wrapperStyle={{}}
+                wrapperClass=""
+                visible={true}
+              />
+            )}
+          </button>
         </form>
         <Link to="/account/create-account" className={style.createacc}>
           <div>Create an account</div>
