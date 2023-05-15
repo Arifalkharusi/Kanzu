@@ -16,10 +16,9 @@ const Cart = (props) => {
     dispatch(loadItems());
   }, [dispatch]);
 
-  let total = 0;
-  items.forEach((x) => {
-    total += x.quantity * x.price;
-  });
+  const total = items.reduce((t, x) => {
+    return x.quantity * x.price + t;
+  }, 0);
 
   const checkoutHandler = async () => {
     setLoader(true);
