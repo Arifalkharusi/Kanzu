@@ -31,6 +31,7 @@
       cursor: pointer;
       align-self: flex-end;
     }
+
     > div {
       display: flex;
       flex-direction: column;
@@ -56,6 +57,17 @@
       > div {
         display: flex;
         gap: 5px;
+      }
+    }
+
+    .yoursize {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      align-self: center;
+      > div {
+        font-size: 20px;
+        font-weight: bold;
       }
     }
 
