@@ -59,6 +59,16 @@
       }
     }
 
+    .yoursize {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      align-self: center;
+      > div {
+        font-size: 20px;
+        font-weight: bold;
+      }
+    }
     .slider {
       position: relative;
 
