@@ -27,24 +27,38 @@
     height: 30px;
     align-self: flex-end;
   }
+
   .content {
+    transition: all 0.5s;
+    transform: translateX(-90%);
     display: flex;
     flex-direction: column;
-
-    * {
+    > svg {
+      align-self: flex-start;
+    }
+    .link {
       padding: 10px;
-      &:first-child {
-        color: rgb(240, 36, 0);
-      }
       font-size: 30px;
       cursor: pointer;
       border-radius: 2px;
-      text-decoration: none;
-      color: inherit;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      > * {
+        text-decoration: none;
+        color: inherit;
+        &:first-child {
+          width: 100%;
+        }
+      }
 
       &:hover {
         background: rgb(226, 226, 226);
       }
     }
+  }
+  .trans {
+    opacity: 1;
   }
 }

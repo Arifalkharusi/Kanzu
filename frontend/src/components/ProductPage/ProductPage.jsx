@@ -18,7 +18,7 @@ const ProductPage = (props) => {
   const { itemid } = useParams();
 
   useEffect(() => {
-    fetch("https://kanzu-api.onrender.com/api/admin/find-product", {
+    fetch("https://kanzu-production.up.railway.app/api/admin/find-product", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -18,7 +18,7 @@ const LoginPage = (props) => {
   const LoginHandler = async (e) => {
     setLoader(true);
     e.preventDefault();
-    await fetch("https://kanzu-api.onrender.com/api/user/login", {
+    await fetch("https://kanzu-production.up.railway.app/api/user/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

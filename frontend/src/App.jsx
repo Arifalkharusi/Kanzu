@@ -36,7 +36,7 @@ function App() {
       <div className="header-margin"></div>
       <Routes>
         <Route path="/" index element={<Home />} />
-        <Route path="/items" element={<Items />} />
+        <Route path="/items/:cat" element={<Items />} />
         <Route path="/items/product/:itemid" element={<ProductPage />} />
         <Route path="/account/login" element={<LoginPage />} />
         <Route path="/account/user" element={<User />} />

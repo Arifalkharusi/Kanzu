@@ -48,17 +48,20 @@ const AddProduct = (props) => {
       description: discription,
       image: imgArr,
       price: price,
-      category: category,
+      category: category.toLowerCase(),
       measurements: size,
     };
 
-    await fetch("/api/admin/add-product", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(item),
-    })
+    await fetch(
+      "https://kanzu-production.up.railway.app/api/admin/add-product",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(item),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -108,9 +111,19 @@ const AddProduct = (props) => {
             value={category}
             onChange={(e) => setCategory(e.target.value)}
           >
-            <option value="Thobe">Thobe</option>
-            <option value="Hijab">Hijab</option>
             <option value="Abayah">Abayah</option>
+            <option value="Trousers">Trousers</option>
+            <option value="Caps">Caps</option>
+            <option value="Keffiyah">Keffiyah</option>
+            <option value="Kimonos">Kimonos</option>
+            <option value="Kids Thobe">Kids Thobe</option>
+            <option value="Oman Thobe">Oman Thobe</option>
+            <option value="Short Sleeve Thobe">Short Sleeve Thobe</option>
+            <option value="Hooded Thobe">Hooded Thobe</option>
+            <option value="Jersey Hijab">Jersey Hijab</option>
+            <option value="Rayon Hijab">Rayon Hijab</option>
+            <option value="Spray Perfume">Spray Perfume</option>
+            <option value="Oil Fragrance">Oil Fragrance</option>
           </select>
         </div>
         <div className={style.size}>

@@ -22,15 +22,18 @@ const Cart = (props) => {
 
   const checkoutHandler = async () => {
     setLoader(true);
-    await fetch("https://kanzu-api.onrender.com/api/checkout/payment", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        items,
-      }),
-    })
+    await fetch(
+      "https://kanzu-production.up.railway.app/api/checkout/payment",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          items,
+        }),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         window.location = data.paymentUrl;
@@ -45,7 +48,7 @@ const Cart = (props) => {
     <div
       className={style.cart}
       style={{
-        transform: displayCart ? "translateX(460px)" : "translateX(0px)",
+        transform: displayCart ? "translateX(360px)" : "translateX(0px)",
       }}
     >
       <svg
@@ -65,7 +68,7 @@ const Cart = (props) => {
       </div>
       <div className={style.total}>
         <div>SUBTOTAL</div>
-        <div>£{total} GBP</div>
+        <div>£{total.toFixed(2)} GBP</div>
       </div>
       <button className={style.checkout} onClick={checkoutHandler}>
         {!loader ? (
