@@ -13,7 +13,7 @@ const User = (props) => {
 
   useEffect(() => {
     const fetchUser = async () => {
-      await fetch("https://kanzu-production.up.railway.app/api/user/me", {
+      await fetch("/api/user/me", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

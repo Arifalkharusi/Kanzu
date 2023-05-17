@@ -20,7 +20,7 @@ const RegisterPage = (props) => {
   const LoginHandler = async (e) => {
     setLoader(true);
     e.preventDefault();
-    await fetch("https://kanzu-production.up.railway.app/api/user/", {
+    await fetch("/api/user/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

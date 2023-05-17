@@ -22,18 +22,15 @@ const Cart = (props) => {
 
   const checkoutHandler = async () => {
     setLoader(true);
-    await fetch(
-      "https://kanzu-production.up.railway.app/api/checkout/payment",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          items,
-        }),
-      }
-    )
+    await fetch("/api/checkout/payment", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        items,
+      }),
+    })
       .then((res) => res.json())
       .then((data) => {
         window.location = data.paymentUrl;
