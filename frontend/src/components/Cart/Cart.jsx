@@ -45,7 +45,7 @@ const Cart = (props) => {
     <div
       className={style.cart}
       style={{
-        transform: displayCart ? "translateX(460px)" : "translateX(0px)",
+        transform: displayCart ? "translateX(360px)" : "translateX(0px)",
       }}
     >
       <svg
@@ -65,7 +65,7 @@ const Cart = (props) => {
       </div>
       <div className={style.total}>
         <div>SUBTOTAL</div>
-        <div>£{total} GBP</div>
+        <div>£{total.toFixed(2)} GBP</div>
       </div>
       <button className={style.checkout} onClick={checkoutHandler}>
         {!loader ? (

@@ -10,6 +10,6 @@ import authAdmin from "../middleware/adminMiddleware.js";
 
 router.post("/add-product", addProduct);
 router.post("/find-product", findProduct);
-router.get("/get-product", getItems);
+router.get("/get-product/:cat", getItems);
 
 export default router;

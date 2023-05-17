@@ -7,7 +7,7 @@ const Home = (props) => {
     <div className={style.container}>
       <div className={style.shop}>
         <div>EXPLORE OUR LATEST COLLECTION</div>
-        <Link to="/items" className={style.btn}>
+        <Link to="/items/new" className={style.btn}>
           SHOP NOW
         </Link>
       </div>

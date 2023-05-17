@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import style from "./Items.module.scss";
 import Product from "../Product/Product";
 // import data from "../../data/data.json";
@@ -6,9 +7,10 @@ import { TailSpin } from "react-loader-spinner";
 
 const Items = (props) => {
   const [data, setData] = useState([]);
+  const { cat } = useParams();
 
   useEffect(() => {
-    fetch("/api/admin/get-product")
+    fetch(`/api/admin/get-product/${cat}`)
       .then((res) => res.json())
       .then((data) => {
         setData(data);
@@ -16,13 +18,13 @@ const Items = (props) => {
       .catch((err) => {
         console.error(err);
       });
-  }, []);
+  }, [cat]);
 
   return (
     <div className={style.items}>
       <div className={style.content}>
         <div className={style.heading}>
-          <h1>Adult's Thobes</h1>
+          <h1>{cat.charAt(0).toUpperCase() + cat.slice(1)}</h1>
           <div>
             Filter
             <svg

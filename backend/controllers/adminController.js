@@ -18,6 +18,13 @@ export const findProduct = expressAsyncHandler(async (req, res) => {
 });
 
 export const getItems = expressAsyncHandler(async (req, res) => {
-  const item = await Product.find({});
-  res.status(200).json(item);
+  const findItems =
+    req.params.cat === "new" ? {} : { category: req.params.cat };
+
+  try {
+    const item = await Product.find(findItems);
+    res.status(200).json(item);
+  } catch (err) {
+    res.status(404).json({ message: err.message });
+  }
 });
