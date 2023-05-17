@@ -18,6 +18,12 @@ app.use(
     methods: ["GET", "POST", "DELETE", "PUT"],
   })
 );
+app.use(
+  cors({
+    origin: "https://kanzu-production.up.railway.app/",
+    methods: ["GET", "POST", "DELETE", "PUT"],
+  })
+);
 mongoose.connect(process.env.MONGODB_URI);
 
 // user route
