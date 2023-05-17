@@ -38,18 +38,13 @@ export const makePayment = asyncHandler(async (req, res) => {
         {
           id: "ship_us",
           amount: 500,
-          currency: "usd",
-          delivery_estimate: {
-            carrier: "USPS",
-            min_days: 3,
-            max_days: 5,
-          },
+          currency: "gbp",
           description: "Standard shipping within the US",
         },
         {
           id: "ship_intl",
           amount: 1500,
-          currency: "usd",
+          currency: "gbp",
           delivery_estimate: {
             carrier: "UPS",
             min_days: 5,
