@@ -34,6 +34,30 @@ export const makePayment = asyncHandler(async (req, res) => {
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
       line_items: lineItems,
+      shipping_rates: [
+        {
+          id: "ship_us",
+          amount: 500,
+          currency: "usd",
+          delivery_estimate: {
+            carrier: "USPS",
+            min_days: 3,
+            max_days: 5,
+          },
+          description: "Standard shipping within the US",
+        },
+        {
+          id: "ship_intl",
+          amount: 1500,
+          currency: "usd",
+          delivery_estimate: {
+            carrier: "UPS",
+            min_days: 5,
+            max_days: 10,
+          },
+          description: "International shipping",
+        },
+      ],
       billing_address_collection: "required",
       shipping_address_collection: {
         allowed_countries: ["US", "GB"],
