@@ -20,7 +20,7 @@ app.use(
 );
 app.use(
   cors({
-    origin: "https://kanzu-production.up.railway.app/",
+    origin: "https://kanzu-production.up.railway.app",
     methods: ["GET", "POST", "DELETE", "PUT"],
   })
 );
