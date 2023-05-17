@@ -10,9 +10,7 @@ const Items = (props) => {
   const { cat } = useParams();
 
   useEffect(() => {
-    fetch(
-      `https://kanzu-production.up.railway.app/api/admin/get-product/${cat}`
-    )
+    fetch(`/api/admin/get-product/${cat}`)
       .then((res) => res.json())
       .then((data) => {
         setData(data);
