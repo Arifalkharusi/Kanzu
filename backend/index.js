@@ -12,15 +12,9 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-// app.use(
-//   cors({
-//     origin: "https://kanzu.netlify.app",
-//     methods: ["GET", "POST", "DELETE", "PUT"],
-//   })
-// );
 app.use(
   cors({
-    origin: "https://kanzu-production.up.railway.app",
+    origin: "https://kanzu.netlify.app",
     methods: ["GET", "POST", "DELETE", "PUT"],
   })
 );
