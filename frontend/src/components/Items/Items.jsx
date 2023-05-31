@@ -10,14 +10,18 @@ const Items = (props) => {
   const { cat } = useParams();
 
   useEffect(() => {
-    fetch(`/api/admin/get-product/${cat}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setData(data);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
+    const fetchItems = async () => {
+      fetch(`/api/admin/get-product/${cat}`)
+        .then((res) => res.json())
+        .then((data) => {
+          setData(data);
+          console.log(data);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    };
+    fetchItems();
   }, [cat]);
 
   return (

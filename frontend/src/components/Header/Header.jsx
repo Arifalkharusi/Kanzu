@@ -25,13 +25,15 @@ const Header = (props) => {
             <path d="M 0 9 L 0 11 L 50 11 L 50 9 Z M 0 24 L 0 26 L 50 26 L 50 24 Z M 0 39 L 0 41 L 50 41 L 50 39 Z" />
           </svg>
         </div>
-        <Link to="/">
-          <img
-            src={require("../../img/Logo.png")}
-            alt=""
-            className={style.logo}
-          />
-        </Link>
+        <div className={style.logodiv}>
+          <Link to="/">
+            <img
+              src={require("../../img/Logo.png")}
+              alt=""
+              className={style.logo}
+            />
+          </Link>
+        </div>
         <div className={style.icons}>
           <Link to={`/account/${!token ? "login" : "user"}`}>
             <svg

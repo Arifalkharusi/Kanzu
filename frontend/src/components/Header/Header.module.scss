@@ -21,10 +21,18 @@
     .menu {
       width: 117px;
     }
-    .logo {
-      width: 100px;
-      cursor: pointer;
+    .logodiv {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .logo {
+        width: 100px;
+        cursor: pointer;
+      }
     }
+
     .cart {
       position: relative;
       cursor: pointer;
@@ -47,6 +55,7 @@
       align-items: center;
       justify-content: center;
       gap: 15px;
+      width: 117px;
     }
   }
 }

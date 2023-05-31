@@ -18,6 +18,7 @@ app.use(
     methods: ["GET", "POST", "DELETE", "PUT"],
   })
 );
+
 mongoose.connect(process.env.MONGODB_URI);
 
 // user route

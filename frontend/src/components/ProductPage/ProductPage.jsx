@@ -15,10 +15,11 @@ const ProductPage = (props) => {
   const [length, setLength] = useState(``);
   const [size, setSize] = useState(``);
   const [inv, setInv] = useState(``);
+  const [imgPos, setImgPos] = useState(0);
   const { itemid } = useParams();
 
   useEffect(() => {
-    fetch("https://kanzu-production.up.railway.app/api/admin/find-product", {
+    fetch("/api/admin/find-product", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -32,7 +33,7 @@ const ProductPage = (props) => {
         setData(data);
       })
       .catch((err) => {
-        navigate("/items");
+        navigate("/items/new");
       });
   }, [itemid, navigate]);
 
@@ -67,14 +68,94 @@ const ProductPage = (props) => {
     dispatch(openCart());
   };
 
+  const switchImgHandler = (pos) => {
+    if (pos === "left") {
+      imgPos > 0 && setImgPos((prev) => prev - 1);
+    }
+    if (pos === "right") {
+      imgPos < data?.image?.length - 1 && setImgPos((prev) => prev + 1);
+    }
+  };
+
   return (
     <div className={style.productpage}>
       {data?.product ? (
         <div className={style.main}>
           <div className={style.left}>
-            {data?.image?.map((x) => (
-              <img src={x} alt="" />
-            ))}
+            <div
+              className={style.leftbtn}
+              onClick={() => switchImgHandler("left")}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                x="0px"
+                y="0px"
+                width="100"
+                height="100"
+                viewBox="0,0,256,256"
+              >
+                <g
+                  fill="#ffffff"
+                  fill-rule="nonzero"
+                  stroke="none"
+                  stroke-width="1"
+                  stroke-linecap="butt"
+                  stroke-linejoin="miter"
+                  stroke-miterlimit="10"
+                  stroke-dasharray=""
+                  stroke-dashoffset="0"
+                  font-family="none"
+                  font-weight="none"
+                  font-size="none"
+                  text-anchor="none"
+                >
+                  <g transform="scale(5.12,5.12)">
+                    <path d="M30.28125,8.28125l-16,16l-0.6875,0.71875l0.6875,0.71875l16,16l1.4375,-1.4375l-15.28125,-15.28125l15.28125,-15.28125z"></path>
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <div
+              className={style.rightbtn}
+              onClick={() => switchImgHandler("right")}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                x="0px"
+                y="0px"
+                width="100"
+                height="100"
+                viewBox="0,0,256,256"
+              >
+                <g
+                  fill="#ffffff"
+                  fill-rule="nonzero"
+                  stroke="none"
+                  stroke-width="1"
+                  stroke-linecap="butt"
+                  stroke-linejoin="miter"
+                  stroke-miterlimit="10"
+                  stroke-dasharray=""
+                  stroke-dashoffset="0"
+                  font-family="none"
+                  font-weight="none"
+                  font-size="none"
+                  text-anchor="none"
+                >
+                  <g transform="scale(5.12,5.12)">
+                    <path d="M19.71875,8.28125l-1.4375,1.4375l15.28125,15.28125l-15.28125,15.28125l1.4375,1.4375l16,-16l0.6875,-0.71875l-0.6875,-0.71875z"></path>
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <div
+              className={style.imgcont}
+              style={{ transform: `translateX(-${imgPos * 100}%)` }}
+            >
+              {data?.image?.map((x) => (
+                <img src={x} alt="" />
+              ))}
+            </div>
           </div>
           <div className={style.right}>
             <div className={style.container}>
