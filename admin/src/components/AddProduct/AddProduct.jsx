@@ -52,16 +52,13 @@ const AddProduct = (props) => {
       measurements: size,
     };
 
-    await fetch(
-      "https://kanzu-production.up.railway.app/api/admin/add-product",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(item),
-      }
-    )
+    await fetch("/api/admin/add-product", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(item),
+    })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

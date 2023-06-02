@@ -230,6 +230,7 @@ const ProductPage = (props) => {
               <div className={style.addtocart}>
                 <button onClick={addToCartHandler}>Add to cart</button>
               </div>
+              <p>{data?.description}</p>
             </div>
           </div>
         </div>
