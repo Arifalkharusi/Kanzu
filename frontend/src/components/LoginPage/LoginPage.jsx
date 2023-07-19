@@ -11,6 +11,7 @@ const LoginPage = (props) => {
   const [email, setEmail] = useState(``);
   const [password, setPassword] = useState(``);
   const [loader, setLoader] = useState(false);
+  const [validateUser, setValidateUser] = useState(false);
   const { token } = useSelector((state) => state.userSlice);
 
   if (token) return <Navigate to="/account/user" />;
@@ -33,14 +34,15 @@ const LoginPage = (props) => {
         localStorage.setItem("token", JSON.stringify(data.token));
         dispatch(login());
         setLoader(false);
+        setValidateUser(false);
+        setEmail("");
+        setPassword("");
       })
       .catch((err) => {
         console.error(err);
+        setValidateUser(true);
         setLoader(false);
       });
-
-    setEmail("");
-    setPassword("");
   };
 
   return (
@@ -48,6 +50,7 @@ const LoginPage = (props) => {
       <div>
         <h3>Login</h3>
         <form action="" onSubmit={LoginHandler}>
+          {validateUser && <span>* invalid email and/or password</span>}
           <label htmlFor="email">EMAIL</label>
           <input
             type="email"
